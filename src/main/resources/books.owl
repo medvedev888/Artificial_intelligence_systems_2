@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontologies/books.owl/"
+     xml:base="http://ontologies/books.owl/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:books="http://ontologies/books.owl#">
+
+  <owl:Ontology rdf:about="http://ontologies/books.owl">
+    <rdfs:comment>Онтология книг</rdfs:comment>
+  </owl:Ontology>
+
+  <!-- классы -->
+  <owl:Class rdf:about="http://ontologies/books.owl#Book"/>
+  <owl:Class rdf:about="http://ontologies/books.owl#Author"/>
+  <owl:Class rdf:about="http://ontologies/books.owl#Genre"/>
+
+  <!-- свойства -->
+  <owl:DatatypeProperty rdf:about="http://ontologies/books.owl#hasTitle">
+    <rdfs:domain rdf:resource="http://ontologies/books.owl#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://ontologies/books.owl#hasAgeLimit">
+    <rdfs:domain rdf:resource="http://ontologies/books.owl#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedShort"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://ontologies/books.owl#hasRating">
+    <rdfs:domain rdf:resource="http://ontologies/books.owl#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:about="http://ontologies/books.owl#hasGenre">
+    <rdfs:domain rdf:resource="http://ontologies/books.owl#Book"/>
+    <rdfs:range rdf:resource="http://ontologies/books.owl#Genre"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ontologies/books.owl#hasAuthor">
+    <rdfs:domain rdf:resource="http://ontologies/books.owl#Book"/>
+    <rdfs:range rdf:resource="http://ontologies/books.owl#Author"/>
+  </owl:ObjectProperty>
+
+  <!-- жанры (individuals) -->
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#Fantasy">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Genre"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#ScienceFiction">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Genre"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#Classic">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Genre"/>
+  </owl:NamedIndividual>
+
+  <!-- несколько книг -->
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#TheHobbit">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Book"/>
+    <books:hasTitle>The Hobbit</books:hasTitle>
+    <books:hasAgeLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedShort">10</books:hasAgeLimit>
+    <books:hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.8</books:hasRating>
+    <books:hasGenre rdf:resource="http://ontologies/books.owl#Fantasy"/>
+    <books:hasAuthor rdf:resource="http://ontologies/books.owl#Tolkien"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#Dune">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Book"/>
+    <books:hasTitle>Dune</books:hasTitle>
+    <books:hasAgeLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedShort">14</books:hasAgeLimit>
+    <books:hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.0</books:hasRating>
+    <books:hasGenre rdf:resource="http://ontologies/books.owl#ScienceFiction"/>
+    <books:hasAuthor rdf:resource="http://ontologies/books.owl#FrankHerbert"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#WarAndPeace">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Book"/>
+    <books:hasTitle>War and Peace</books:hasTitle>
+    <books:hasAgeLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedShort">16</books:hasAgeLimit>
+    <books:hasRating rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.2</books:hasRating>
+    <books:hasGenre rdf:resource="http://ontologies/books.owl#Classic"/>
+    <books:hasAuthor rdf:resource="http://ontologies/books.owl#Tolstoy"/>
+  </owl:NamedIndividual>
+
+  <!-- авторы -->
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#Tolkien">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Author"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#FrankHerbert">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Author"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://ontologies/books.owl#Tolstoy">
+    <rdf:type rdf:resource="http://ontologies/books.owl#Author"/>
+  </owl:NamedIndividual>
+
+</rdf:RDF>
